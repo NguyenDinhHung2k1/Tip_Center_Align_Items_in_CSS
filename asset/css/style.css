@@ -1,0 +1,50 @@
+/* 
+    1, Line height
+        - chiều cao bằng thẻ cha chứa nội dung, hoặc đặt thẳng vào thẻ cha 
+        - vì thuộc tính line-height: có thừa kế (inherited)
+
+    2, Flex 
+        - 2.1 Đặt display: flex ở thẻ cha và thêm thuộc tính margin: auto thẻ con
+        - 2.2 Đặt các thuộc tính: display: flex , align-items: center, justify-conten: center
+        -   có thể sử dụng thêm các thuộc tính khác để căn chỉnh các thẻ con khi sử dụng display: flex
+            space-between, space-around, space-evenly...
+
+    3,Position
+        - cho position: relative ở thẻ cha
+        - cho position: absolute ở thẻ con
+        - sử dụng top: 50% và transform: translateY(-50%) thẻ con sẽ được căn giữa theo chiều dọc
+        - sử dụng left: 50% và transform: translateX(-50%) thẻ con sẽ được căn giữa theo chiều ngang
+        - viết như sau: transform: translateX(-50%) translateY(-50%) hoặc translate(-50%,-50%)
+
+*/
+
+/* resste css */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.container {
+    height: 100px;
+    display: flex;
+    background-color: orange;
+}
+
+h1 {
+    margin: auto;
+    color: red;
+    position: relative;
+}
+
+h1::after {
+    content: "";
+    left: -10px;
+    top: 50%;
+    height: 40px;
+    position: absolute;
+    transform: translateY(-50%);
+    border-left: 3px solid #000;
+}
